@@ -1,0 +1,386 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+/* Resetting default browser styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow: hidden;
+    font-family: "Roboto", sans-serif;
+    touch-action: none;
+    user-select: none;
+
+}
+
+p, h1 {
+    cursor:default;
+}
+
+.mainCanvas {
+    position : absolute;
+    top: 0px;
+    left : 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+.particleCanvas {
+    position : absolute;
+    top : 0px;
+    left : 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 199;
+}
+.spaceShip {
+    position : absolute;
+    top : 0px;
+    left : 1000px;
+    z-index: 200;
+    width : 257px;
+    height : 262px;
+    pointer-events: none;
+    scale : 1;
+}
+
+.shipBody {
+    position : absolute;
+    top :0px;
+    left :54px;
+    
+}
+
+.shipPlate {
+    position : absolute;
+    top : 170px;
+    left : 4px;
+    rotate: 0deg;
+    transition : rotate 0.1s linear;
+}
+
+/* floor parallax */
+.floor {
+    position : absolute;
+    top : 0px;
+    bottom: 0px;
+    left: 0px;
+    width: 100%;
+    background-color: #043c0d;
+    z-index: 500;
+    scale : 1;
+    border-top : solid 5px #161f18
+}
+
+.bg3 {
+    position : absolute;
+    width : 100%;
+    bottom : 0px;
+    
+    background-color:  #23532c;
+
+    z-index: 100;
+    scale : 1;
+}
+
+.bg2 {
+    position : absolute;
+    width : 100%;
+    bottom : 0px;
+    background-color: #043c0d;
+    z-index: 101;
+    scale : 1;
+}
+.bg1 {
+    position : absolute;
+    width : 100%;
+    bottom : 0px;
+   
+    background-color: #23532c;
+    z-index: 102;
+    scale : 1;
+}
+/* Buttons at the top right of the screen */
+.buttons-on-canvas {
+    position : absolute;
+    top : 0px;
+    right : 0px;
+    width : 300px;
+    display : flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: red;
+}
+.buttons-on-canvas div {
+    z-index: 1000;
+    width : 75px;
+    height : 100px;
+    display : flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border : solid 5px; 
+    border-color : white;
+    border-radius : 10px;
+    box-shadow: 10px 5px 5px grey;
+
+    margin : 10px;
+
+    transition : scale 0.2s ease-in-out, border-color 0.2s ease-in-out;
+}
+.buttons-on-canvas .active {
+    scale : 0.95;
+    border-color : grey;
+}
+
+.buttons-on-canvas img {
+    width : 50px;
+    height : 50px;
+    
+}
+
+.buttons-on-canvas>div p {
+    font-size : 20px;
+    color : rgb(255, 255, 255);
+    margin-top : 10px;
+    font-weight: bold;
+}
+
+/* Display of values on the middle right */
+.panel {
+    display: flex;
+    justify-content: left;
+    align-items: space-evenly;
+    flex-direction : column;
+    position : absolute;
+    top: 150px;
+    right : 0px;
+    height : 50%;
+    width : 270px;
+    z-index: 1000;
+}
+.panel p {
+    font-size : 20px;
+    color : rgb(255, 255, 255);
+    font-weight: bold;
+}
+
+/* /////////////////////Sidebar/////////////////// */
+/* for all */
+
+.sidebar input[type="text"] {
+    border-radius: 5px;
+    width : 120px;
+    font-size: 15px;
+    color :  white;
+    background-color: rgb(55, 54, 54);
+    margin : 10px;
+    padding-left : 5px;
+}
+
+.sidebar input[type="range"] {
+    width : 110px;
+    margin: 10px;
+}
+
+.sidebar input[type="button"] {
+    font-size: 20px;
+    width : 250px;
+    height : 50px;
+    padding : 10px;
+    color:black;
+    background-color: white;
+    border : solid 2px rgb(55, 54, 54);
+    border-radius : 5px;
+    margin : 25px;
+    transition : all 0.2s ease-in-out;
+}
+
+.sidebar input[type="button"]:hover{
+    scale : 1.02;
+}
+
+.sidebar input[type="button"]:active{
+    background-color: rgb(55, 54, 54);
+    scale: 1.04;
+}
+
+/* title */
+.sidebar .title {
+    position : absolute;
+    top:0px;
+    left: 0px;
+    font-size: 30px;
+    width: 200px;
+    height : 100px;
+    color : white;
+    background: rgb(55, 54, 54);
+    padding: 10px;
+    z-index: 1000;
+
+}
+/* category names */
+.sidebar .names {
+    position:absolute;
+    top: 80px;
+    left: 0px;
+    display : flex;
+    flex-direction: column;
+    justify-content:stretch;
+    width : 200px;
+    height : 100%;
+    background: rgb(55, 54, 54);
+    z-index: 1000;
+
+}
+
+.sidebar .names p {
+    display:flex;
+    align-items: center;
+    justify-content: left;
+    font-size : 18px;
+    height : 40px;
+    color : white;
+    margin : 10px;
+    font-weight: bold;
+    border-bottom : solid 2px grey;
+    transition : box-shadow 0.2s linear, font-size 0.2s linear, background-color 0.2s ease-in-out;
+    margin-right : 0px;
+    padding-left : 10px;
+    border-top-left-radius: 5px;
+
+}
+
+.sidebar .names .active {
+    background-color: #acadac;
+    color : #333333;
+    border-bottom : solid 4px grey;
+    
+}
+
+.sidebar .names p:hover {
+    box-shadow: grey 0px 2px;
+    font-size: 22px;
+}
+
+/* category contents */
+.sidebar .contents > li{
+    position : absolute;
+    top : 0px;
+    left : -100px;
+    width : 300px;
+    height : 100%;
+    z-index: 800;
+    background-color: #acadac;
+    border-right : solid 3px grey;
+    transition: left 1s ease-in-out;
+    
+    
+}
+
+.sidebar .contents .opened{
+    z-index: 999;
+    left: 200px;
+}
+
+/* charts category */
+.charts-container h1 {
+    font-size : 30px;
+    color : #201f1f;
+    font-weight: bold;
+    margin : 10px;
+}
+
+.charts-container div {
+    margin :10px;
+    background-color:  rgb(55, 54, 54);
+    border-radius: 4px;
+}
+/* coefficients category */
+.coefficients-container{
+    overflow-y: scroll;
+}
+
+.coefficients-container ul {
+    display:flex;
+    align-items: left;
+    justify-content: center;
+    flex-direction: column;
+    margin-left : 20px;
+}
+
+.coefficients-container ul li {
+    display : flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: left;
+    margin-left : 10px;
+}
+.coefficients-container h1 {
+    font-size : 30px;
+    color : #201f1f;
+    font-weight: bold;
+}
+.coefficients-container p {
+    font-size: 15px;
+
+}
+
+/* center of mass category */
+.center-of-mass-container>p, .center-of-mass-container h1{
+    margin : 10px;
+}
+.center-of-mass-container ul li {
+    display : flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: left;
+    margin-left : 10px;
+}
+
+.show-mass-center {
+    display : flex;
+}
+
+.show-mass-center p{
+    margin:10px;
+}
+
+/* ship attributes category */
+
+.ship-attributes-container div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin : 20px;
+}
+
+/* orders category */
+
+.orders-container h1 {
+    font-size : 30px;
+    color : #201f1f;
+    font-weight: bold;
+    margin : 10px;
+}
+
+.orders-container div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.altitude-order-activation p, .roll-order-activation p, .lateral-order-activation p{
+    margin:10px;
+}
+
+.order-explanation {
+    margin: 10px;
+}
+
+.max-roll-angle {
+    margin: 10px;
+}
+
+
+

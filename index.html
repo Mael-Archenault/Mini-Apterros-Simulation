@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MiniApterros</title>
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<body>
+  
+
+    <div class="user-interface">
+        <div class="buttons-on-canvas">
+            <div class="view-changer active">
+                <img src = "assets/rocket_icon.png">
+                <p>V</p>
+            </div>
+            <div class="reset">
+                <img src = "assets/reset_icon.png">
+                <p>R</p>
+            </div>
+            <div class="follow-mode">
+                <img src = "assets/cursor_icon.png">
+                <p>F</p>
+            </div>
+        </div>
+        <div class="panel">
+            <p class="speed">Speed = 0m/s</p>
+            <p class="altitude">Altitude = 0m</p>
+            <p class="lateral">Lateral Distance = 0m</p>
+            <p class="angle">Angle = 0°</p>
+            <p class="uAltitude">uAltitude = 0</p>
+            <p class="uPlate">uPlateau = 0</p>
+            <p class="uLateral">uLateral = 0</p>
+        </div>
+        <div class="sidebar">
+            <div class="title">
+                <p>MiniApterros Simulation</p>
+            </div>
+            <div class="names">
+                <p class = "chartsButton">Charts</p>
+                <p class = "coefficientsButton">Coefficients</p>
+                <p class = "centerOfMassButton">Center of Mass</p>
+                <p class = "shipAttributesButton">Ship Attributes</p>
+                <p class = "ordersButton">Orders</p>
+            </div>
+          
+            <ul class="contents">
+                <li class="charts-container">
+                    <h1>Altitude</h1>
+                    <div class="altitude-chart-container">
+                        <canvas id="altitude-chart"></canvas>
+                    </div>
+                    <h1>Roll</h1>
+                    <div class="roll-chart-container">
+                        <canvas id="roll-chart"></canvas>
+                    </div>
+                    <h1>Lateral Distance</h1>
+                    <div class="lateral-chart-container">
+                        <canvas id="lateral-chart"></canvas>
+                    </div>
+                    <input class="chart-pause-button" type="button" value="Pause">
+                </li>
+                <li class="coefficients-container">
+                    <div class="altitude-coefficients">
+                        <ul>
+                            <h1>Altitude</h1>
+                            <li>
+                                <p>k</p>
+                                <input type="text" class="altitude-k-box" value="1">
+                            </li>
+                            <li>
+                                <p>Tr</p>
+                                <input type="text" class="altitude-Tr-box" value="0.4">
+                            </li>
+                            <li>
+                                <p>Kp</p>
+                                <input type="text" class="altitude-Kp-box" value="10">
+                            </li>
+                            <li>
+                                <p>Ti</p>
+                                <input type="text" class="altitude-Ti-box" value="0.1">
+                            </li>
+                            <li>
+                                <p>Td</p>
+                                <input type="text" class="altitude-Td-box" value="0.01">
+                            </li>
+                        </ul>
+                        <ul>
+                            <h1>Roll</h1>
+                            <li>
+                                <p>k</p>
+                                <input type="text" class="roll-k-box" value="0.6">
+                            </li>
+                            <li>
+                                <p>Tr</p>
+                                <input type="text" class="roll-Tr-box" value="0.8">
+                            </li>
+                            <li>
+                                <p>Kp</p>
+                                <input type="text" class="roll-Kp-box" value="5">
+                            </li>
+                            <li>
+                                <p>Ti</p>
+                                <input type="text" class="roll-Ti-box" value="20">
+                            </li>
+                            <li>
+                                <p>Td</p>
+                                <input type="text" class="roll-Td-box" value="0.01">
+                            </li>
+                        </ul>
+                        <ul>
+                            <h1>Lateral Distance</h1>
+                            <li>
+                                <p>k</p>
+                                <input type="text" class="lateral-k-box" value="1">
+                            </li>
+                            <li>
+                                <p>Tr</p>
+                                <input type="text" class="lateral-Tr-box" value="1">
+                            </li>
+                            <li>
+                                <p>Kp</p>
+                                <input type="text" class="lateral-Kp-box" value="0.1">
+                            </li>
+                            <li>
+                                <p>Ti</p>
+                                <input type="text" class="lateral-Ti-box" value="1000">
+                            </li>
+                            <li>
+                                <p>Td</p>
+                                <input type="text" class="lateral-Td-box" value="0">
+                            </li>
+                        </ul>
+                    </div>
+                    <input class="restore-coefficients-button" type="button" value="Restore default values">
+                    <input class="coefficients-apply-button" type="button" value="Apply Values">
+                </li>
+                <li class="center-of-mass-container">
+                    <p>The ship is modeled as a rectangle with a size of 257x262 px. The x and y positions of the mass center are relative to the top left corner of this rectangle. x is growing to the right and y to the bottom of the screen.</p>
+                    <ul>
+                        <h1>Position</h1>
+                        <li>
+                            <p>x</p>
+                            <input type="text" class="mass-center-x-box" value="128.5">
+                        </li>
+                        <li>
+                            <p>y</p>
+                            <input type="text" class="mass-center-y-box" value="131">
+                        </li>
+                      
+                        <input class="restore-mass-center-button" type="button" value="Restore default values">
+                        <input class="mass-center-apply-button" type="button" value="Apply Values">
+
+                        <div class="show-mass-center">
+                            <p>Show center of mass</p>
+                            <input type="checkbox" class="show-mass-center-checkbox ">
+                        </div>
+                    </ul>
+                </li>
+                <li class="ship-attributes-container">
+                    <div class="mass">
+                        <p>Mass (kg)</p>
+                        <input class="mass-box" type="text" placeholder="Enter value here" value="10">
+                    </div>
+                    <div class="friction">
+                        <p>Friction coefficient (N.s/m)</p>
+                        <input class="friction-box" type="text" placeholder="Enter value here" value="10">
+                    </div>
+                    <div class="moment-of-inertia">
+                        <p>Moment of inertia (kg/m<sup>2</sup>)</p>
+                        <input class="moment-of-inertia-box" type="text" placeholder="Enter value here" value="200">
+                    </div>
+                    <div class="max-propulsion">
+                        <p>Max Propulsion (N)</p>
+                        <input class="max-propulsion-box" type="text" placeholder="Enter value here" value="147.15">
+                    </div>
+                    <div class="max-plate-angle">
+                        <p>Max Plate Angle (°)</p>
+                        <input class="max-plate-angle-box" type="text" placeholder="Enter value here" value="10">
+                    </div>
+                    <input class="restore-attributes-button" type="button" value="Restore default values">
+                    <input class="attributes-apply-button" type="button" value="Apply Values">
+                </li>
+                <li class="orders-container">
+                    <h1>Altitude Order</h1>
+                    <div class="altitude-order">
+                        <input class="altitude-slider" type="range" min="0" max="10" value="0">
+                        <input class="altitude-box" type="text" placeholder="Enter order here" value="0">
+                    </div>
+                    <div class="altitude-order-activation">
+                        <p>Activate altitude control</p>
+                        <input type="checkbox" class="altitude-order-checkbox">
+                    </div>
+                    <h1>Roll Order</h1>
+                    <div class="roll-order">
+                        <input class="roll-slider" type="range" min="-180" max="180" value="0">
+                        <input class="roll-box" type="text" placeholder="Enter order here" value="0">
+                    </div>
+                    <div class="roll-order-activation">
+                        <p>Activate roll control</p>
+                        <input type="checkbox" class="roll-order-checkbox">
+                    </div>
+                    <h1>Lateral Order</h1>
+                    <div class="lateral-order">
+                        <input class="lateral-slider" type="range" min="-100" max="100" value="0">
+                        <input class="lateral-box" type="text" placeholder="Enter order here" value="0">
+                    </div>
+                    <div class="max-roll-angle">
+                        <p>Max Roll angle in lateral control(°)</p>
+                        <input class="max-roll-angle-box" type="text" placeholder="Enter value here" value="30">
+                    </div>
+                    <div class="lateral-order-activation">
+                        <p>Activate lateral control</p>
+                        <input type="checkbox" class="lateral-order-checkbox">
+                    </div>
+                    <input class="orders-apply-button" type="button" value="Apply Values">
+                    <p class="order-explanation">When Lateral Control is activated, the order for Roll Control is no longer followed. The Lateral Control gives its own roll angle to move the ship laterally. Thus making the Lateral Control dependant of the Roll Control.</p>
+                </li>
+            </ul>
+                
+            
+            
+        </div>
+        
+    </div>
+    
+    <canvas class="mainCanvas"></canvas>
+    <canvas class = "particleCanvas"></canvas>
+    
+    
+    
+
+    <div class="bg3"></div>
+    <div class="bg2"></div>
+    <div class="bg1"></div>
+    <div class="floor"></div>
+
+    <div class="spaceShip" >
+        <div class="shipBody">
+            <img src = "assets/body.png" draggable="false">
+        </div>
+        <div class="shipPlate">
+            <img src = "assets/plate.png" draggable="false">
+        </div>
+        
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="chartManager.js"></script>
+    <script src="particles.js"></script>
+    <script src="mouseControl.js"></script>
+    <script src="keyboardControl.js"></script>
+    <script src="correctors.js"></script>
+    <script src="sidebar.js"></script>
+    <script src="script.js"></script>
+    
+    
+</body>
+
+
+</html>
