@@ -1,3 +1,9 @@
+## Description of the project
+
+## Content of the project
+
+
+
 Here is the description of the content of files :
 
 -Assets: contains all PNG files to display spaceship and buttons
@@ -15,9 +21,8 @@ Here is the description of the content of files :
 
 
 
-////////////////////////////////////////////////////////////////
+## User manual
 
-To use the simulation :
 Download all files and keep them in the same repertory.
 Open index.html with your Internet browser (tested with Chrome, I don't know if it works for others)
 
