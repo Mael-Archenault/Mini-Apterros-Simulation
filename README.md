@@ -1,8 +1,8 @@
 ## Description of the project
 
+In my first year of engineering school, I spent a month working as an intern to build an electric-powered spaceship and develop control for every axis. In the aftermath, I had the idea to recreate a simulation about that project and see how it would turn. I decided to write in in HTML/CSS/JavaScript since I did not practice them a lot. I spent about 20h on the project.
+
 ## Content of the project
-
-
 
 Here is the description of the content of files :
 
@@ -13,13 +13,16 @@ Here is the description of the content of files :
 -style.css: set styles for every object on the page
 
 -script.js: main program, it manages the physics, positions updates, display, etc...
+
 -mouseControl.js: everything that relates to the mouse reading is put in this file
+
 -keyboardControl.js: everything that relates to the keyboard reading is put in this file
--correctors.js: creates the corrector class
+
+-correctors.js: creates the corrector class, very useful
+
 -sidebar.js: everything that relates to the left sidebar is put in this file
+
 -particle.js: creates a basic particle system used in script.js
-
-
 
 ## User manual
 
