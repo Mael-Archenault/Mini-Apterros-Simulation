@@ -1,6 +1,6 @@
 ## Description of the project
 
-In my first year of engineering school, I spent a month working as an intern to build an electric-powered spaceship and develop control for every axis. In the aftermath, I had the idea to recreate a simulation about that project and see how it would turn. I decided to write in in HTML/CSS/JavaScript since I did not practice them a lot. I spent about 20h on the project.
+In my first year of engineering school, I spent a month working as an intern to build an electric-powered spaceship and develop control for every axis. In the aftermath, I had the idea to recreate a simulation about that project and see how it would turn. I decided to write it in HTML/CSS/JavaScript since I did not practice them a lot. I spent about 20h on the project.
 
 ## Content of the project
 
