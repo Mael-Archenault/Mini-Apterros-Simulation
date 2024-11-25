@@ -6,23 +6,23 @@ In my first year of engineering school, I spent a month working as an intern to 
 
 Here is the description of the content of files :
 
--Assets: contains all PNG files to display spaceship and buttons
+- Assets: contains all PNG files to display spaceship and buttons
 
--index.html: contains the main structure of the page
+- index.html: contains the main structure of the page
 
--style.css: set styles for every object on the page
+- style.css: set styles for every object on the page
 
--script.js: main program, it manages the physics, positions updates, display, etc...
+- script.js: main program, it manages the physics, positions updates, display, etc...
 
--mouseControl.js: everything that relates to the mouse reading is put in this file
+- mouseControl.js: everything that relates to the mouse reading is put in this file
 
--keyboardControl.js: everything that relates to the keyboard reading is put in this file
+- keyboardControl.js: everything that relates to the keyboard reading is put in this file
 
--correctors.js: creates the corrector class, very useful
+- correctors.js: creates the corrector class, very useful
 
--sidebar.js: everything that relates to the left sidebar is put in this file
+- sidebar.js: everything that relates to the left sidebar is put in this file
 
--particle.js: creates a basic particle system used in script.js
+- particle.js: creates a basic particle system used in script.js
 
 ## User manual
 
