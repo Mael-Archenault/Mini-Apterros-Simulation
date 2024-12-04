@@ -29,7 +29,7 @@ Here is the description of the content of files :
 Download all files and keep them in the same repertory 
 Open index.html with your Internet browser (tested with Chrome, I don't know if it works for others)
 OR 
-go to https://mael-archenault.github.io/Mini_Apterros_Simulation/
+go to https://mael-archenault.github.io/Mini-Apterros-Simulation/
 
 By default your on Manual mode:
   - you can control the ship with right, left, up, down arrows.
